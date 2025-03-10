@@ -1,4 +1,129 @@
-<html>
-  <head><title>Hola Mundo</title></head>
-  <body><h1>Hola mundo</h1></body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filosofía 2º Bachillerato</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            line-height: 1.6; 
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                        url('recursos/heart-9360465_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        h1, h2 { color: #5a2d82; }
+        .contenedor { max-width: 800px; margin: auto; }
+        .tema { margin-bottom: 20px; }
+        .contenido { display: none; }
+        button { background: #5a2d82; color: white; padding: 10px; border: none; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #5a2d82; color: white; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Filosofía - 2º Bachillerato</h1>
+        <p>Explora los temas clave de la asignatura con explicaciones y textos de filósofos.</p>
+
+
+        
+        <div class="tema">
+            <button onclick="toggle('tema1')">Descartes y el Racionalismo</button>
+            <div id="tema1" class="contenido">
+                <h2>Descartes - Discurso del Método</h2>
+                <p>Descartes estableció cuatro reglas fundamentales para el pensamiento racional...</p>
+                <table>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>Duda metódica</td>
+                        <td>Cuestionar todo conocimiento que no sea absolutamente evidente.</td>
+                    </tr>
+                    <tr>
+                        <td>Cogito, ergo sum</td>
+                        <td>El pensamiento como prueba irrefutable de la existencia.</td>
+                    </tr>
+                    <tr>
+                        <td>Res cogitans y Res extensa</td>
+                        <td>Diferenciación entre el alma (pensamiento) y el cuerpo (extensión).</td>
+                    </tr>
+                    <tr>
+                        <td>Método cartesiano</td>
+                        <td>Reglas para alcanzar la verdad: evidencia, análisis, síntesis y enumeración.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="tema">
+            <button onclick="toggle('tema2')">Nietzsche y la Crítica a la Moral</button>
+            <div id="tema2" class="contenido">
+                <h2>Nietzsche - La Gaya Ciencia</h2>
+                <p>Nietzsche cuestiona los valores tradicionales y propone una nueva perspectiva de la moralidad...</p>
+                <ul>
+                    <li>Crítica a la moral tradicional y sus fundamentos religiosos.</li>
+                    <li>Concepto de la "muerte de Dios" y su impacto en la cultura occidental.</li>
+                    <li>La moral de los señores frente a la moral de los esclavos.</li>
+                    <li>El superhombre como ideal filosófico de autotrascendencia.</li>
+                    <li>El eterno retorno y la aceptación de la vida.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tema">
+            <button onclick="toggle('tema3')">Kant y la Ética</button>
+            <div id="tema3" class="contenido">
+                <h2>Kant - Fundamentación de la Metafísica de las Costumbres</h2>
+                <p>Kant argumenta que la moral se basa en el deber y la razón...</p>
+                <ul>
+                    <li>Imperativo categórico
+                        <ul>
+                            <li>Universalidad: "Obra solo según una máxima tal que puedas querer al mismo tiempo que se torne en ley universal".</li>
+                            <li>Tratamiento de las personas como fines y no como medios.</li>
+                        </ul>
+                    </li>
+                    <li>Autonomía moral
+                        <ul>
+                            <li>El individuo se da a sí mismo las leyes morales sin necesidad de una autoridad externa.</li>
+                        </ul>
+                    </li>
+                    <li>Ética deontológica
+                        <ul>
+                            <li>La moralidad de una acción depende de su conformidad con el deber y no de sus consecuencias.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="temas">
+            <h1>Temas</h1>
+            <ol>
+                <li><a href="https://es.wikipedia.org/wiki/Presocr%C3%A1ticos" target="_blank">Presocráticos: Los orígenes de la filosofía</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/S%C3%B3crates" target="_blank">Sócrates: El debate humanista en la Atenas de los sofistas</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Plat%C3%B3n" target="_blank">Platón: La búsqueda del ideal ético-político</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Arist%C3%B3teles" target="_blank">Aristóteles: La invención del pensamiento científico</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Cristianismo" target="_blank">Cristianismo: Del Mundo Latino a la Edad Media</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Tom%C3%A1s_de_Aquino" target="_blank">Tomás de Aquino: Las relaciones entre fe y razón en la Edad Media</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/David_Hume" target="_blank">David Hume: Empirismo y crítica a la Metafísica</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Karl_Marx" target="_blank">Karl Marx: Dialéctica y revolución social y política</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Jos%C3%A9_Ortega_y_Gasset" target="_blank">José Ortega y Gasset: Razón vital y comunicativa</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Posmodernidad" target="_blank">Posmodernidad y modernidad líquida</a></li>
+            </ol>
+        </div>
+
+    </div>
+    
+    <script>
+        function toggle(id) {
+            var contenido = document.getElementById(id);
+            contenido.style.display = contenido.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
 </html>
