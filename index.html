@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filosofía 2º Bachillerato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -14,57 +15,82 @@
             background-size: cover;
         }
         h1, h2 { color: #5a2d82; }
-        .contenedor { max-width: 800px; margin: auto; }
+        .contenedor { 
+            max-width: 800px; 
+            margin: auto; 
+            padding: 20px; 
+            background: rgba(255, 255, 255, 0.9); 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
         .tema { margin-bottom: 20px; }
-        .contenido { display: none; }
-        button { background: #5a2d82; color: white; padding: 10px; border: none; cursor: pointer; }
+        .contenido { 
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding: 0 10px;
+            border-left: 4px solid #5a2d82;
+            background: #f9f9f9;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .contenido.mostrar { max-height: 500px; padding: 10px; }
+        button { 
+            background: #5a2d82; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            width: 100%; 
+            text-align: left; 
+            font-size: 16px; 
+            transition: background 0.3s ease; 
+        }
+        button:hover { background: #7a4d9a; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #5a2d82; color: white; }
+        #searchBox { 
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-size: 16px; 
+        }
+        .enlaces { margin-top: 20px; }
+        .enlaces a { color: #5a2d82; text-decoration: none; font-weight: bold; }
+        .enlaces a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="contenedor">
         <h1>Filosofía - 2º Bachillerato</h1>
         <p>Explora los temas clave de la asignatura con explicaciones y textos de filósofos.</p>
-
-
+        
+        <input type="text" id="searchBox" placeholder="Buscar en los temas..." onkeyup="searchText()">
         
         <div class="tema">
-            <button onclick="toggle('tema1')">Descartes y el Racionalismo</button>
+            <button onclick="toggle('tema1')"><i class="fas fa-brain"></i> Descartes y el Racionalismo</button>
             <div id="tema1" class="contenido">
                 <h2>Descartes - Discurso del Método</h2>
                 <p>Descartes estableció cuatro reglas fundamentales para el pensamiento racional...</p>
                 <table>
-                    <tr>
-                        <th>Concepto</th>
-                        <th>Descripción</th>
-                    </tr>
-                    <tr>
-                        <td>Duda metódica</td>
-                        <td>Cuestionar todo conocimiento que no sea absolutamente evidente.</td>
-                    </tr>
-                    <tr>
-                        <td>Cogito, ergo sum</td>
-                        <td>El pensamiento como prueba irrefutable de la existencia.</td>
-                    </tr>
-                    <tr>
-                        <td>Res cogitans y Res extensa</td>
-                        <td>Diferenciación entre el alma (pensamiento) y el cuerpo (extensión).</td>
-                    </tr>
-                    <tr>
-                        <td>Método cartesiano</td>
-                        <td>Reglas para alcanzar la verdad: evidencia, análisis, síntesis y enumeración.</td>
-                    </tr>
+                    <tr><th>Concepto</th><th>Descripción</th></tr>
+                    <tr><td>Duda metódica</td><td>Cuestionar todo conocimiento que no sea absolutamente evidente.</td></tr>
+                    <tr><td>Cogito, ergo sum</td><td>El pensamiento como prueba irrefutable de la existencia.</td></tr>
+                    <tr><td>Res cogitans y Res extensa</td><td>Diferenciación entre el alma (pensamiento) y el cuerpo (extensión).</td></tr>
+                    <tr><td>Método cartesiano</td><td>Reglas para alcanzar la verdad: evidencia, análisis, síntesis y enumeración.</td></tr>
                 </table>
+                <div class="enlaces"><a href="https://es.wikipedia.org/wiki/René_Descartes" target="_blank">Más sobre Descartes en Wikipedia</a></div>
             </div>
         </div>
         
         <div class="tema">
-            <button onclick="toggle('tema2')">Nietzsche y la Crítica a la Moral</button>
+            <button onclick="toggle('tema2')"><i class="fas fa-mask"></i> Nietzsche y la Crítica a la Moral</button>
             <div id="tema2" class="contenido">
                 <h2>Nietzsche - La Gaya Ciencia</h2>
-                <p>Nietzsche cuestiona los valores tradicionales y propone una nueva perspectiva de la moralidad...</p>
                 <ul>
                     <li>Crítica a la moral tradicional y sus fundamentos religiosos.</li>
                     <li>Concepto de la "muerte de Dios" y su impacto en la cultura occidental.</li>
@@ -72,11 +98,12 @@
                     <li>El superhombre como ideal filosófico de autotrascendencia.</li>
                     <li>El eterno retorno y la aceptación de la vida.</li>
                 </ul>
+                <div class="enlaces"><a href="https://es.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank">Más sobre Nietzsche en Wikipedia</a></div>
             </div>
         </div>
         
         <div class="tema">
-            <button onclick="toggle('tema3')">Kant y la Ética</button>
+            <button onclick="toggle('tema3')"><i class="fas fa-balance-scale"></i> Kant y la Ética</button>
             <div id="tema3" class="contenido">
                 <h2>Kant - Fundamentación de la Metafísica de las Costumbres</h2>
                 <p>Kant argumenta que la moral se basa en el deber y la razón...</p>
@@ -87,42 +114,39 @@
                             <li>Tratamiento de las personas como fines y no como medios.</li>
                         </ul>
                     </li>
-                    <li>Autonomía moral
-                        <ul>
-                            <li>El individuo se da a sí mismo las leyes morales sin necesidad de una autoridad externa.</li>
-                        </ul>
-                    </li>
-                    <li>Ética deontológica
-                        <ul>
-                            <li>La moralidad de una acción depende de su conformidad con el deber y no de sus consecuencias.</li>
-                        </ul>
-                    </li>
                 </ul>
+                <div class="enlaces"><a href="https://es.wikipedia.org/wiki/Immanuel_Kant" target="_blank">Más sobre Kant en Wikipedia</a></div>
             </div>
         </div>
 
-        <div class="temas">
-            <h1>Temas</h1>
-            <ol>
-                <li><a href="https://es.wikipedia.org/wiki/Presocr%C3%A1ticos" target="_blank">Presocráticos: Los orígenes de la filosofía</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/S%C3%B3crates" target="_blank">Sócrates: El debate humanista en la Atenas de los sofistas</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/Plat%C3%B3n" target="_blank">Platón: La búsqueda del ideal ético-político</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/Arist%C3%B3teles" target="_blank">Aristóteles: La invención del pensamiento científico</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/Cristianismo" target="_blank">Cristianismo: Del Mundo Latino a la Edad Media</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/Tom%C3%A1s_de_Aquino" target="_blank">Tomás de Aquino: Las relaciones entre fe y razón en la Edad Media</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/David_Hume" target="_blank">David Hume: Empirismo y crítica a la Metafísica</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/Karl_Marx" target="_blank">Karl Marx: Dialéctica y revolución social y política</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/Jos%C3%A9_Ortega_y_Gasset" target="_blank">José Ortega y Gasset: Razón vital y comunicativa</a></li>
-                <li><a href="https://es.wikipedia.org/wiki/Posmodernidad" target="_blank">Posmodernidad y modernidad líquida</a></li>
-            </ol>
-        </div>
+
+<!-- Nueva sección de recursos -->
+<div class="tema">
+    <button onclick="toggle('tema4')"><i class="fas fa-book"></i> Recursos Adicionales</button>
+    <div id="tema4" class="contenido">
+        <h2><i class="fas fa-lightbulb"></i> Enlaces útiles para el estudio</h2>
+        <ul>
+            <li><a href="https://es.wikipedia.org/wiki/Historia_de_la_filosofía" target="_blank"><i class="fas fa-university"></i> Historia de la Filosofía en Wikipedia</a></li>
+            <li><a href="https://www.filosofia.org/" target="_blank"><i class="fas fa-globe"></i> Enciclopedia de Filosofía en línea</a></li>
+            <li><a href="https://www.youtube.com/c/FilosofíaenRed" target="_blank"><i class="fab fa-youtube"></i> Canal de YouTube: Filosofía en Red</a></li>
+            <li><a href="https://plato.stanford.edu/" target="_blank"><i class="fas fa-book-reader"></i> Stanford Encyclopedia of Philosophy (en inglés)</a></li>
+        </ul>
+    </div>
+</div>
 
     </div>
     
     <script>
         function toggle(id) {
             var contenido = document.getElementById(id);
-            contenido.style.display = contenido.style.display === 'block' ? 'none' : 'block';
+            contenido.classList.toggle("mostrar");
+        }
+        function searchText() {
+            var input = document.getElementById('searchBox').value.toLowerCase();
+            var temas = document.querySelectorAll('.tema .contenido');
+            temas.forEach(tema => {
+                tema.style.display = tema.textContent.toLowerCase().includes(input) ? 'block' : 'none';
+            });
         }
     </script>
 </body>
