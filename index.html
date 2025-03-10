@@ -5,57 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filosofía 2º Bachillerato</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 20px; 
-            line-height: 1.6; 
-            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
-                        url('recursos/heart-9360465_1280.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-        h1, h2 { color: #5a2d82; }
-        .contenedor { 
-            max-width: 800px; 
-            margin: auto; 
-            padding: 20px; 
-            background: rgba(255, 255, 255, 0.9); 
-            border-radius: 10px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-        }
-        .tema { margin-bottom: 20px; }
-        .contenido { 
-            display: none;
-            padding: 10px;
-            border-left: 4px solid #5a2d82;
-            background: #f9f9f9;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-        button { 
-            background: #5a2d82; 
-            color: white; 
-            padding: 10px 20px; 
-            border: none; 
-            cursor: pointer; 
-            border-radius: 5px; 
-            width: 100%; 
-            text-align: left; 
-            font-size: 16px; 
-            transition: background 0.3s ease; 
-        }
-        button:hover { background: #7a4d9a; }
-        .highlight { background-color: yellow; font-weight: bold; }
-        #searchBox { 
-            width: 100%; 
-            padding: 10px; 
-            margin-bottom: 10px; 
-            border: 1px solid #ddd; 
-            border-radius: 5px; 
-            font-size: 16px; 
-        }
-        #searchCount { font-weight: bold; color: #5a2d82; }
-    </style>
+    <link rel="stylesheet" href="recursos/estilo.css">
 </head>
 <body>
     <div class="contenedor">
@@ -129,34 +79,7 @@
 </div>
     </div>
     
-    <script>
-        function toggle(id) {
-            var contenido = document.getElementById(id);
-            contenido.style.display = (contenido.style.display === "block") ? "none" : "block";
-        }
-
-        function searchText() {
-            var input = document.getElementById('searchBox').value.toLowerCase();
-            var temas = document.querySelectorAll('.contenido');
-            var count = 0;
-
-            temas.forEach(tema => {
-                let textoOriginal = tema.innerHTML.replace(/<span class="highlight">|<\/span>/gi, ""); // Elimina resaltado previo
-                tema.innerHTML = textoOriginal;
-
-                if (input.length > 0) {
-                    let regex = new RegExp(input, "gi");
-                    let coincidencias = textoOriginal.match(regex);
-                    
-                    if (coincidencias) {
-                        count += coincidencias.length;
-                        tema.innerHTML = textoOriginal.replace(regex, match => `<span class="highlight">${match}</span>`);
-                    }
-                }
-            });
-
-            document.getElementById('searchCount').innerText = count;
-        }
-    </script>
+  <script src="recursos/scripts.js"></script>
+    
 </body>
 </html>
