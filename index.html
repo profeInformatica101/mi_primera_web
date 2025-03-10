@@ -25,16 +25,13 @@
         }
         .tema { margin-bottom: 20px; }
         .contenido { 
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            padding: 0 10px;
+            display: none;
+            padding: 10px;
             border-left: 4px solid #5a2d82;
             background: #f9f9f9;
             margin-top: 10px;
             border-radius: 5px;
         }
-        .contenido.mostrar { max-height: 500px; padding: 10px; }
         button { 
             background: #5a2d82; 
             color: white; 
@@ -48,9 +45,7 @@
             transition: background 0.3s ease; 
         }
         button:hover { background: #7a4d9a; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #5a2d82; color: white; }
+        .highlight { background-color: yellow; font-weight: bold; }
         #searchBox { 
             width: 100%; 
             padding: 10px; 
@@ -59,9 +54,7 @@
             border-radius: 5px; 
             font-size: 16px; 
         }
-        .enlaces { margin-top: 20px; }
-        .enlaces a { color: #5a2d82; text-decoration: none; font-weight: bold; }
-        .enlaces a:hover { text-decoration: underline; }
+        #searchCount { font-weight: bold; color: #5a2d82; }
     </style>
 </head>
 <body>
@@ -70,7 +63,8 @@
         <p>Explora los temas clave de la asignatura con explicaciones y textos de filósofos.</p>
         
         <input type="text" id="searchBox" placeholder="Buscar en los temas..." onkeyup="searchText()">
-        
+        <p>Palabras encontradas: <span id="searchCount">0</span></p>
+    
         <div class="tema">
             <button onclick="toggle('tema1')"><i class="fas fa-brain"></i> Descartes y el Racionalismo</button>
             <div id="tema1" class="contenido">
@@ -133,20 +127,35 @@
         </ul>
     </div>
 </div>
-
     </div>
     
     <script>
         function toggle(id) {
             var contenido = document.getElementById(id);
-            contenido.classList.toggle("mostrar");
+            contenido.style.display = (contenido.style.display === "block") ? "none" : "block";
         }
+
         function searchText() {
             var input = document.getElementById('searchBox').value.toLowerCase();
-            var temas = document.querySelectorAll('.tema .contenido');
+            var temas = document.querySelectorAll('.contenido');
+            var count = 0;
+
             temas.forEach(tema => {
-                tema.style.display = tema.textContent.toLowerCase().includes(input) ? 'block' : 'none';
+                let textoOriginal = tema.innerHTML.replace(/<span class="highlight">|<\/span>/gi, ""); // Elimina resaltado previo
+                tema.innerHTML = textoOriginal;
+
+                if (input.length > 0) {
+                    let regex = new RegExp(input, "gi");
+                    let coincidencias = textoOriginal.match(regex);
+                    
+                    if (coincidencias) {
+                        count += coincidencias.length;
+                        tema.innerHTML = textoOriginal.replace(regex, match => `<span class="highlight">${match}</span>`);
+                    }
+                }
             });
+
+            document.getElementById('searchCount').innerText = count;
         }
     </script>
 </body>
