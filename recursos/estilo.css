@@ -1,13 +1,18 @@
 body { 
     font-family: Arial, sans-serif; 
-    margin: 20px; 
-    line-height: 1.6; 
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
-                url('recursos/heart-9360465_1280.jpg') no-repeat center center fixed;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                url('../recursos/heart-9360465_1280.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+
 h1, h2 { color: #5a2d82; }
 .contenedor { 
+     background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                url('recursos/heart-9360465_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
     max-width: 800px; 
     margin: auto; 
     padding: 20px; 
